@@ -1,5 +1,16 @@
 
 
+it '#selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category' do
+  expect(@db.execute(selects_the_category_names_and_pledge_amounts_of_all_pledges_in_the_music_category)).to eq([["music", 40], ["music", 24], ["music", 34], ["music", 12], ["music", 40], ["music", 40], ["music", 20], ["music", 230]])
+end
+
+it '#selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category' do
+  expect(@db.execute(selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_books_category)).to eq([["books", 140]])
+end
+end
+end
+
+
 def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_name
 "SELECT projects.title, SUM(pledges.amount) FROM projects
     INNER JOIN pledges
@@ -22,7 +33,7 @@ def selects_the_titles_and_amount_over_goal_of_all_projects_that_have_met_their_
     HAVING over_goal >= 0;"
 end
 
-def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount
+def selects_user_names_and_amounts_of_all_pledges_grouped_by_name_then_orders_them_by_the_amount_and_users_name
 "SELECT users.name, SUM(pledges.amount) AS total_pledges FROM users
     INNER JOIN pledges
       ON users.id = pledges.user_id

@@ -51,7 +51,7 @@ def selects_the_category_name_and_the_sum_total_of_the_all_its_pledges_for_the_b
 end
 
 def selects_the_titles_of_all_projects_and_their_pledge_amounts_alphabetized_by_name
-  
+
 end
 
 selects_the_user_name_age_and_pledge_amount_for_all_pledges_alphabetized_by_name
